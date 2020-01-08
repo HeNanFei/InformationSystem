@@ -21,7 +21,7 @@
             <legend>添加用户</legend>
         </fieldset>
 
-        <form class="layui-form" action="">
+        <form class="layui-form" action="/manager/user/add">
             <div class="layui-form-item">
                 <label class="layui-form-label">用户名</label>
                 <div class="layui-input-block">
@@ -34,6 +34,17 @@
                     <input type="password" name="password" lay-verify="pass" placeholder="请输入密码" autocomplete="off" class="layui-input">
                 </div>
                 <div class="layui-form-mid layui-word-aux">请填写6到12位密码</div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">用户身份</label>
+                <div class="layui-input-block">
+                    <input type="checkbox" name="type" title="语文老师" value="语文老师">
+                    <input type="checkbox" name="type" title="数学老师" value="数学老师">
+                    <input type="checkbox" name="type" title="英语老师" value="英语老师">
+                    <input type="checkbox" name="type" title="化学老师" value="化学老师">
+                    <input type="checkbox" name="type" title="物理老师" value="物理老师">
+                    <input type="checkbox" name="type" title="生物老师" value="生物老师">
+                </div>
             </div>
 
 
@@ -112,9 +123,9 @@
                 title: '最终的提交信息'
             })
 
-            $.ajax({
-                url:'../../test/layui',
-                data:{msg:data.field},
+          $.ajax({
+                url:'../../usr/add',
+                data:{user:data.field},
                 success:function (msg) {
                     layer.alert(msg);
                 },
