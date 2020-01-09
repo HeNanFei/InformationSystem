@@ -1,5 +1,7 @@
 package com.zjt.manager.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.zjt.manager.pojo.User;
 import com.zjt.manager.service.UserService;
 import com.zjt.manager.util.Bcry;
@@ -15,13 +17,18 @@ public class UserController {
 
    @Autowired
    private UserService userService;
-
+   @ResponseBody
    @RequestMapping("/usr/add")
-   public String add(User user){
+   public String add(String user1){
+       System.out.println(user1);
 
-       String password = Bcry.bcry(user.getPassword());
-       user.setPassword(password);
-       userService.insertUser(user);
+
+       User user2 = JSONObject.parseObject(user1, User.class);
+
+
+       String password = Bcry.bcry(user2.getPassword());
+       user2.setPassword(password);
+       userService.insertUser(user2);
 
        return "添加成功";
    }

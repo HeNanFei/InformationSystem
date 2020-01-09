@@ -25,7 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     }
 
-    @Bean
+  /*  @Bean
     public UserDetailsService getUs() {
 
         InMemoryUserDetailsManager userDetailsManager = new InMemoryUserDetailsManager();
@@ -35,7 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         return userDetailsManager;
     }
-
+*/
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {

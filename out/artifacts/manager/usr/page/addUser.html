@@ -25,6 +25,7 @@
             <div class="layui-form-item">
                 <label class="layui-form-label">用户名</label>
                 <div class="layui-input-block">
+                    <input type="hidden" name="uid" lay-verify="title" autocomplete="off" placeholder="请输入用户名" class="layui-input" value="null">
                     <input type="text" name="username" lay-verify="title" autocomplete="off" placeholder="请输入用户名" class="layui-input">
                 </div>
             </div>
@@ -119,13 +120,15 @@
 
         //监听提交
         form.on('submit(demo1)', function (data) {
+            var user1 = JSON.stringify(data.field);
             layer.alert(JSON.stringify(data.field), {
                 title: '最终的提交信息'
             })
 
+
           $.ajax({
                 url:'../../usr/add',
-                data:{user:data.field},
+                data:{user1:user1},
                 success:function (msg) {
                     layer.alert(msg);
                 },

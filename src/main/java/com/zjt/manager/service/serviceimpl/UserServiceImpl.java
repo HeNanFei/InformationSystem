@@ -4,15 +4,21 @@ import com.zjt.manager.mapper.UserMapper;
 import com.zjt.manager.pojo.User;
 import com.zjt.manager.pojo.UserExample;
 import com.zjt.manager.service.UserService;
+import javafx.scene.shape.Circle;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements UserService {
-
+public class UserServiceImpl implements UserService{
+    private static final Logger LOG = LoggerFactory.getLogger(UserServiceImpl.class);
     @Autowired
     private UserMapper userMapper;
 
@@ -32,6 +38,7 @@ public class UserServiceImpl implements UserService {
 
         return userMapper.selectByExample(userExample);
     }
+
 
 
 }
