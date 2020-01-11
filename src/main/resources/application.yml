@@ -10,3 +10,4 @@ spring:
       prefix: /jsp/
 mybatis:
    mapper-locations: classpath:mybatisConf/mapper/*.xml
+
